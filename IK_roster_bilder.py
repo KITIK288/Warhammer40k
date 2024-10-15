@@ -3,6 +3,9 @@ from tkinter import ttk
 from tkinter import font as tkfont
 from tkinter import messagebox
 
+# далее будет добавлены характеристиким для каждого юнита и энчачмента,
+# появляющееся при нажатии на кноку i напротив каждого юнита, варлорда и энчачмента.
+
 def show_info_unit(unit):
     if unit == "Armiger knight Warglaive":
         messagebox.showinfo("Информация", f"Информация о юните 1: {unit}")
