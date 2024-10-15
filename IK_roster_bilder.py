@@ -104,8 +104,6 @@ class ScrollableFrame(ttk.Frame):
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
-
-# Данные о юнитах, варлордах и энчантментах
 units = {
     "Armiger knight Warglaive": 150,
     "Armiger knight Helverin": 140,
@@ -149,27 +147,23 @@ enchantments = {
     "Unyielding Paragon": 40,
 }
 
-# Функция для расчета общей стоимости ростера
 def calculate_roster():
     total_cost = 0
     selected_units = []
     selected_warlord = None
     selected_enchantments = []
 
-    # Юниты
     for unit, cost in units.items():
         count = unit_vars[unit].get()
         if count > 0:
             total_cost += cost * count
             selected_units.append(f"{count} x {unit}")
 
-    # Варлорд
     for warlord, cost in warlords.items():
         if warlord_var.get() == warlord:
             total_cost += cost
             selected_warlord = warlord
 
-    # Энчантменты
     for enchantment, cost in enchantments.items():
         if enchantment_vars[enchantment].get():
             total_cost += cost
@@ -185,20 +179,15 @@ def calculate_roster():
 
     total_cost_label.config(text=f"Общая стоимость ростера: {total_cost} очков")
 
-
-# Создание графического интерфейса
 root = tk.Tk()
 root.title("Создание ростера Имперских Рыцарей")
 
-# Создание основного фрейма
 main_frame = tk.Frame(root)
 main_frame.pack(fill="both", expand=True)
 
-# Создание фрейма для юнитов, варлордов и энчантментов
 units_warlords_enchantments_frame = ttk.Frame(main_frame)
 units_warlords_enchantments_frame.pack(padx=10, pady=10, fill="x")
 
-# Юниты
 unit_frame = ScrollableFrame(units_warlords_enchantments_frame, padding=10)
 unit_frame.pack(side="left", padx=10, fill="both", expand=True)
 
@@ -231,7 +220,6 @@ for index, warlord in enumerate(warlords):
     info_button_warlord = ttk.Button(warlord_frame, text="i", command=lambda w=warlord: show_info_warlords(w), width=2)
     info_button_warlord.grid(row=index, column=1, padx=(5, 0))
 
-# Энчантменты
 enchantment_frame = ttk.LabelFrame(units_warlords_enchantments_frame, text="Энчантменты", padding=10)
 enchantment_frame.pack(side="left", padx=10, fill="both", expand=True)
 
@@ -254,11 +242,9 @@ for enchantment in enchantments:
 total_cost_label = ttk.Label(root, text="Список выбранных юнитов, энчачментов и варлорда")
 total_cost_label.pack(pady=10)
 
-# Кнопка расчета
 calculate_button = tk.Button(root, text="Рассчитать ростер", command=calculate_roster, padx=20, pady=20)
 calculate_button.pack(pady=10)
 
-# Вывод общей стоимости
 total_cost_label = ttk.Label(root, text="Общая стоимость ростера: 0 очков")
 total_cost_label.pack(pady=10)
 
