@@ -6,107 +6,6 @@ from tkinter import messagebox
 # далее будет добавлены характеристиким для каждого юнита и энчачмента,
 # появляющееся при нажатии на кноку i напротив каждого юнита, варлорда и энчачмента.
 
-def show_info_unit(unit):
-    if unit == "Armiger knight Warglaive":
-        messagebox.showinfo("Информация", f"Информация о юните 1: {unit}")
-    elif unit == "Armiger knight Helverin":
-        messagebox.showinfo("Информация", f"Информация о юните 2: {unit}")
-    elif unit == "Armiger knight Moraix":
-        messagebox.showinfo("Информация", f"Информация о юните 3: {unit}")
-    elif unit == "Questoris Knight Paladin":
-        messagebox.showinfo("Информация", f"Информация о юните 4: {unit}")
-    elif unit == "Questoris Knight Errant":
-        messagebox.showinfo("Информация", f"Информация о юните 5: {unit}")
-    elif unit == "Questoris Knight Warden":
-        messagebox.showinfo("Информация", f"Информация о юните 6: {unit}")
-    elif unit == "Questoris Crusader Knight":
-        messagebox.showinfo("Информация", f"Информация о юните 7: {unit}")
-    elif unit == "Questoris Gallant Knight":
-        messagebox.showinfo("Информация", f"Информация о юните 8: {unit}")
-    elif unit == "Cerastus Lancer":
-        messagebox.showinfo("Информация", f"Информация о юните 9: {unit}")
-    elif unit == "Cerastus Castigator":
-        messagebox.showinfo("Информация", f"Информация о юните 10: {unit}")
-    elif unit == "Cerastus Acheron":
-        messagebox.showinfo("Информация", f"Информация о юните 11: {unit}")
-    elif unit == "Cerastus Atrapos":
-        messagebox.showinfo("Информация", f"Информация о юните 12: {unit}")
-    elif unit == "Knight Castellan":
-        messagebox.showinfo("Информация", f"Информация о юните 13: {unit}")
-    elif unit == "Knight Valiant":
-        messagebox.showinfo("Информация", f"Информация о юните 14: {unit}")
-    elif unit == "Knight Acastus Porphyrion":
-        messagebox.showinfo("Информация", f"Информация о юните 15: {unit}")
-    elif unit == "Knight Acastus Asterius":
-        messagebox.showinfo("Информация", f"Информация о юните 16: {unit}")
-    elif unit == "Questoris Knight Styrix":
-        messagebox.showinfo("Информация", f"Информация о юните 17: {unit}")
-    elif unit == "Questoris Knight Magaera":
-        messagebox.showinfo("Информация", f"Информация о юните 18: {unit}")
-
-def show_info_enchantments(enchantment):
-    if enchantment == "Revered Knight":
-        messagebox.showinfo("Информация", f"Информация о енчачменте 1: {enchantment}")
-    if enchantment == "Mysterious Guardian":
-        messagebox.showinfo("Информация", f"Информация о енчачменте 2: {enchantment}")
-    if enchantment == "Banner of Macharius Triumphant":
-        messagebox.showinfo("Информация", f"Информация о енчачменте 3: {enchantment}")
-    if enchantment == "Mythic Hero":
-        messagebox.showinfo("Информация", f"Информация о енчачменте 4: {enchantment}")
-    if enchantment == "Unyielding Paragon":
-        messagebox.showinfo("Информация", f"Информация о енчачменте 5: {enchantment}")
-
-def show_info_warlords(warlord):
-    print('warlord: ' + warlord)
-    if warlord == "Questoris Knight Paladin":
-        messagebox.showinfo("Информация", f"Информация о варлорде 1: {warlord}")
-    elif warlord == "Questoris Knight Errant":
-        messagebox.showinfo("Информация", f"Информация о варлорде 2: {warlord}")
-    elif warlord == "Questoris Knight Warden":
-        messagebox.showinfo("Информация", f"Информация о варлорде 3: {warlord}")
-    elif warlord == "Questoris Crusader Knight":
-        messagebox.showinfo("Информация", f"Информация о варлорде 4: {warlord}")
-    elif warlord == "Questoris Gallant Knight":
-        messagebox.showinfo("Информация", f"Информация о варлорде 5: {warlord}")
-    elif warlord == "Cerastus Lancer":
-        messagebox.showinfo("Информация", f"Информация о варлорде 6: {warlord}")
-    elif warlord == "Cerastus Castigator":
-        messagebox.showinfo("Информация", f"Информация о варлорде 7: {warlord}")
-    elif warlord == "Cerastus Acheron":
-        messagebox.showinfo("Информация", f"Информация о варлорде 8: {warlord}")
-    elif warlord == "Cerastus Atrapos":
-        messagebox.showinfo("Информация", f"Информация о варлорде 9: {warlord}")
-    elif warlord == "Knight Castellan":
-        messagebox.showinfo("Информация", f"Информация о варлорде 10: {warlord}")
-    elif warlord == "Knight Valiant":
-        messagebox.showinfo("Информация", f"Информация о варлорде 11: {warlord}")
-    elif warlord == "Questoris Knight Styrix":
-        messagebox.showinfo("Информация", f"Информация о варлорде 12: {warlord}")
-    elif warlord == "Questoris Knight Magaera":
-        messagebox.showinfo("Информация", f"Информация о варлорде 13: {warlord}")
-
-
-class ScrollableFrame(ttk.Frame):
-    def __init__(self, container, *args, **kwargs):
-        super().__init__(container, *args, **kwargs)
-        canvas = tk.Canvas(self)
-        scrollbar = ttk.Scrollbar(self, orient="vertical", command=canvas.yview)
-        self.scrollable_frame = ttk.Frame(canvas)
-
-        self.scrollable_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(
-                scrollregion=canvas.bbox("all")
-            )
-        )
-
-        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
-
-        canvas.configure(yscrollcommand=scrollbar.set)
-
-        canvas.pack(side="left", fill="both", expand=True)
-        scrollbar.pack(side="right", fill="y")
-
 units = {
     "Armiger knight Warglaive": 150,
     "Armiger knight Helverin": 140,
@@ -149,6 +48,40 @@ enchantments = {
     "Mythic Hero": 25,
     "Unyielding Paragon": 40,
 }
+
+def show_info_unit(unit):
+    if unit in units:
+        messagebox.showinfo("Информация", f"Информация о юните: {unit}")
+
+def show_info_warlords(warlord):
+    if warlord in warlords:
+        messagebox.showinfo("Информация", f"Информация о варлорде: {warlord}")
+
+def show_info_enchantments(enchantment):
+    if enchantment in enchantments:
+        messagebox.showinfo("Информация", f"Информация о енчачменте: {enchantment}")
+
+
+class ScrollableFrame(ttk.Frame):
+    def __init__(self, container, *args, **kwargs):
+        super().__init__(container, *args, **kwargs)
+        canvas = tk.Canvas(self)
+        scrollbar = ttk.Scrollbar(self, orient="vertical", command=canvas.yview)
+        self.scrollable_frame = ttk.Frame(canvas)
+
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(
+                scrollregion=canvas.bbox("all")
+            )
+        )
+
+        canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
 
 def calculate_roster():
     total_cost = 0
@@ -208,7 +141,6 @@ for unit in units:
     unit_spinboxes[unit] = unit_spinbox
     unit_labels[unit] = unit_label
 
-# Варлорд
 warlord_frame = ttk.LabelFrame(units_warlords_enchantments_frame, text="Варлорд", padding=10)
 warlord_frame.pack(side="left", padx=10, fill="both", expand=True)
 warlords_vars = {}
@@ -219,7 +151,6 @@ for index, warlord in enumerate(warlords):
     radiobutton = ttk.Radiobutton(warlord_frame, text=warlord, variable=warlord_var, value=warlord)
     radiobutton.grid(row=index, column=0, sticky="w")
 
-    # Info button
     info_button_warlord = ttk.Button(warlord_frame, text="i", command=lambda w=warlord: show_info_warlords(w), width=2)
     info_button_warlord.grid(row=index, column=1, padx=(5, 0))
 
